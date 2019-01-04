@@ -21,7 +21,6 @@ for i in content:
     f1.write("%.2f" % he)
 
 
-
 f.close()
 f1.close()
 
