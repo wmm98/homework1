@@ -17,14 +17,33 @@
 值输出的内容要与该值输入时的内容完全一致。例如，输入内容是381.33333，
 输出内容也要是381.33333，不能输出为381.33.'''
 
-f1 = open("in.txt")
-content = f1.readlines()
-f2 = open("out.txt", "w")
-for line in content:
-    line = [eval(i) for i in line.strip().split(" ")]
-    f2.write(str(max(line)) + "  " + str(min(line)) + "\n")
+# f1 = open("in.txt")
+# content = f1.readlines()
+# f2 = open("out.txt", "w")
+# for line in content:
+#     line = [eval(i) for i in line.strip().split(" ")]
+#     f2.write(str(max(line)) + "  " + str(min(line)) + "\n")
+#
+# f1.close()
+# f2.close()
 
+
+r = open("in.txt", "r")
+f1 = open("out.txt", "w")
+# 读写操作
+content = r.readlines()
+result = []
+for i in content:
+    result.append(i.split())
+# 关闭文件
+r.close()
+temp = []
+for i in result:
+    for j in i:
+        if "." in j:
+            temp.append(float(j))
+        else:
+            temp.append(int(j))
+    f1.write(str(max(temp))+"  " + str(min(temp)) + '\n')
+    temp = []
 f1.close()
-f2.close()
-
-
